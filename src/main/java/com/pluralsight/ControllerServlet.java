@@ -52,14 +52,20 @@ public class ControllerServlet extends HttpServlet {
 			switch(action) {
 				case "/admin":
 					 showBookAdmin(request, response);
-           break;
-			  case "/new":
+           		break;
+				 case "/new":
 					showNewForm(request, response);
-          break;
+           		break;
 				case "/insert":
 					insertBook(request, response);
-          break;
-        default:
+          		break;
+				case "/delete":
+					deleteBook(request, response);
+				break;
+				case "/edit":
+					editBook(request, response);
+				break;
+			default:
 				   listBooks(request, response);
            break;
 			}
@@ -104,7 +110,12 @@ public class ControllerServlet extends HttpServlet {
 		bookDAO.insertBook(newBook);
 		response.sendRedirect("list");
 	}
-
+	private void deleteBook(HttpServletRequest request, HttpServletResponse resonse)
+			throws ServletException, IOException{}
+	
+	private void editBook(HttpServletRequest request, HttpServletResponse resonse)
+			throws ServletException, IOException{}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
