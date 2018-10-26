@@ -117,11 +117,9 @@ public class ControllerServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Book bookToEdit = bookDAO.getBook(id);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
-		request.setAttribute(name, o);
-	
-	
+		request.setAttribute("book", bookToEdit);
+	    dispatcher.forward(request, response);
 	}
-
 
 	private void deleteBook(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
